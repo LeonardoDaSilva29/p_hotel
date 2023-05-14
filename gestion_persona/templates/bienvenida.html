@@ -1,0 +1,20 @@
+{% extends 'master.html' %}
+
+{% block titulo %}
+    Bienvenido a mi aplicación
+{% endblock %}
+
+{% block contenido %}
+    
+    <div class="contenido-container">
+        <div class="banner">
+            <!-- Aquí puedes agregar el contenido de tu banner -->
+        </div>
+
+        <div class="toolbar">
+            <a href="/mostrarHuesped/alta" class="btn btn-primary">Nuevo Huesped</a>
+            <a href="/mostrarHuesped/buscar" class="btn btn-primary">Buscar Huesped</a>
+            <a href="/mostrarHuesped/" class="btn btn-primary">Listado</a>
+        </div>
+    </div>
+{% endblock %}

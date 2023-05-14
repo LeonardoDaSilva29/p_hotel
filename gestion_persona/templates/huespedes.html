@@ -1,0 +1,51 @@
+{% extends 'master.html' %}
+
+{% block contenido %}
+
+
+    <a href="/mostrarHuesped/alta" class="btn btn-primary">Agregar Nuevo Huésped</a>
+    <a href="{% url 'bienvenida' %}" class="btn btn-primary">Volver a Inicio</a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de Entrada</th>
+                <th>Teléfono</th>
+                <th>E-mail</th>
+                <th>Dirección</th>
+                <th>N° Habitación</th>
+                <th>Habitación Disponible</th>
+                <th>Fecha de Salida</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for persona in lista_huesped %}
+            <tr>
+                <td>{{ persona.dni }}</td>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.apellido }}</td>
+                <td>{{ persona.fecha_entrada }}</td>
+                <td>{{ persona.telefono }}</td>
+                <td>{{ persona.email }}</td>
+                <td>{{ persona.direccion }}</td>
+                <td>{{ persona.habitacion_nro }}</td>
+                <td>{{ persona.habitacion_disponible }}</td>
+                <td>{{ persona.fecha_salida }}</td>
+                <td>
+                    <a href='actualizar/{{ persona.dni }}' class="btn btn-primary">Actualizar</a>
+                    <a href='borrar/{{ persona.dni }}' class="btn btn-primary">Borrar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block titulo %}
+    Lista de Huéspedes
+{% endblock %}

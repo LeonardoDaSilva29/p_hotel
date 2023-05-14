@@ -1,0 +1,29 @@
+{% extends 'master.html' %}
+{% block titulo%} Buscar Huésped por nombre {% endblock %}
+{% block contenido %}
+
+<a href="{% url 'bienvenida' %}" class="btn btn-primary">Volver a Inicio</a>
+
+<div class="container">
+  <div class="card">
+      <div class="card-body">
+
+        <form action="/mostrarHuesped/buscar" method="post">
+          {% csrf_token %}
+          {{ form }}
+          <input type="submit" value="Submit">
+        </form>
+      
+        {% for persona in lista_persona %}
+            <ul>
+                <li> DNI: {{persona.dni}}, Nombre: {{persona.nombre}}, Apellido: {{persona.apellido}}, Fecha de Entrada: {{persona.fecha_entrada}}, Telefono: {{persona.telefono}}, E-mail: {{persona.email}}, Dirección: {{persona.direccion}}, N° Habitacion: {{persona.habitacion_nro}}, Habaitación Disponible: {{persona.habitacion_disponible}}, Fecha de Salida: {{persona.fecha_salida}}</li>
+            </ul>
+        {% endfor %}
+
+      </div>
+  </div>
+</div>
+
+  
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'master.html' %}
+{% block titulo%} Modificar Huesped {% endblock %}
+{% block contenido %}
+
+<!-- Prestar aatención a la variable familiar.id -->
+<form action="/mostrarHuesped/actualizar/{{ persona.dni }}" method="post"> 
+    {% csrf_token %}
+    {{ form.as_p }}
+    <!-- CON EL .as_p SE QUEDAN LOS CAMPOS UNO DEBADO DEL OTRO -->
+    <input type="submit" value="Submit">
+</form>
+
+<h2 style="color:green">{{msg_exito}}</h2>
+
+<a href="{% url 'lista_huespedes' %}">Volver a listado de Huespedes</a>
+
+{% endblock %}
+
