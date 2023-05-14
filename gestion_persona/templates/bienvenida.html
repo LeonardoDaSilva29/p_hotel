@@ -1,11 +1,75 @@
 {% extends 'master.html' %}
 
 {% block titulo %}
-    Gestión de Ingreso de Huéspedes
+    <h2 class="text-center">Gestión de Ingreso de Huéspedes</h2>
 {% endblock %}
 
 {% block contenido %}
-    
+
+<style>
+    body {
+      background-color: #f3f3f3;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 30vh;
+    }
+
+    .welcome-box {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333333;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #666666;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #4caf50;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="welcome-box">
+      <h1>Bienvenido/a, espero que tengas un bello dia</h1>
+      <p>Gracias por ser parte del staff de Los Lirios Apart Hotel</p>
+
+      <div class="container-fluid">
+        <img src="img/bienvenida1.png" class="card-img-top" alt="img" >
+      </div>
+
+
+    </div>
+  </div>
+</body>   
     
 {% endblock %}
 

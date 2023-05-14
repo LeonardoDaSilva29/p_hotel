@@ -2,16 +2,7 @@
 
 {% block contenido %}
 
-<!--
-    <div>
-        <a href="/mostrarHuesped/alta" class="btn btn-primary">Agregar Nuevo Huésped</a>
-        <a href="{% url 'bienvenida' %}" class="btn btn-primary">Volver a Inicio</a>
-    </div>
--->    
-
-
-
-    <table class="table">
+    <table class="table table-sm fs-6 table table-striped"  >
         <thead>
             <tr>
                 <th>DNI</th>
@@ -22,12 +13,12 @@
                 <th>E-mail</th>
                 <th>Dirección</th>
                 <th>N° Habitación</th>
-                <th>Habitación Disponible</th>
+                <!--<th>Habitación Disponible</th>-->
                 <th>Fecha de Salida</th>
                 <th>Acciones</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             {% for persona in lista_huesped %}
             <tr>
                 <td>{{ persona.dni }}</td>
@@ -38,11 +29,11 @@
                 <td>{{ persona.email }}</td>
                 <td>{{ persona.direccion }}</td>
                 <td>{{ persona.habitacion_nro }}</td>
-                <td>{{ persona.habitacion_disponible }}</td>
+                <!--<td>{{ persona.habitacion_disponible }}</td>-->
                 <td>{{ persona.fecha_salida }}</td>
                 <td>
-                    <a href='actualizar/{{ persona.dni }}' class="btn btn-primary">Actualizar</a>
-                    <a href='borrar/{{ persona.dni }}' class="btn btn-primary">Borrar</a>
+                    <a href='actualizar/{{ persona.dni }}' class="btn btn-primary btn-sm">Actualizar</a>
+                    <a href='borrar/{{ persona.dni }}' class="btn btn-primary btn-sm">Borrar</a>
                 </td>
             </tr>
             {% endfor %}
@@ -51,5 +42,5 @@
 {% endblock %}
 
 {% block titulo %}
-    Lista de Huéspedes
+<h2 class="text-center">Lista de Huéspedes</h2>
 {% endblock %}

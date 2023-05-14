@@ -1,26 +1,65 @@
 {% extends 'master.html' %}
-{% block titulo%} Buscar Huésped por nombre {% endblock %}
+{% block titulo%} <h2 class="text-center">Buscar Huésped por nombre</h2>{% endblock %}
 {% block contenido %}
 
 <!--
 <a href="{% url 'bienvenida' %}" class="btn btn-primary">Volver a Inicio</a>
 -->
 
-<div class="container">
+<div class="container fs-6 d-flex justify-content-center"">
   <div class="card">
       <div class="card-body">
 
         <form action="/mostrarHuesped/buscar" method="post">
           {% csrf_token %}
           {{ form }}
-          <input type="submit" value="Buscar">
+          <input type="submit" value="Buscar" class="btn btn-primary btn-sm">
         </form>
-      
+
+        <table class="table table-sm fs-6 table table-striped">
+          <thead>
+            <tr>
+              <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de Entrada</th>
+                <th>Teléfono</th>
+                <th>E-mail</th>
+                <th>Dirección</th>
+                <th>N° Habitación</th>
+                <!--<th>Habitación Disponible</th>-->
+                <th>Fecha de Salida</th>
+                <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            {% for persona in lista_persona %}
+            <tr>
+              <td>{{ persona.dni }}</td>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.apellido }}</td>
+                <td>{{ persona.fecha_entrada }}</td>
+                <td>{{ persona.telefono }}</td>
+                <td>{{ persona.email }}</td>
+                <td>{{ persona.direccion }}</td>
+                <td>{{ persona.habitacion_nro }}</td>
+                <!--<td>{{ persona.habitacion_disponible }}</td>-->
+                <td>{{ persona.fecha_salida }}</td>
+                <td>
+                    <a href='actualizar/{{ persona.dni }}' class="btn btn-primary btn-sm">Actualizar</a>
+                    <a href='borrar/{{ persona.dni }}' class="btn btn-primary btn-sm">Borrar</a>
+                </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+
+        </table>
+<!--      
         {% for persona in lista_persona %}
             <ul>
                 <li> DNI: {{persona.dni}}, Nombre: {{persona.nombre}}, Apellido: {{persona.apellido}}, Fecha de Entrada: {{persona.fecha_entrada}}, Telefono: {{persona.telefono}}, E-mail: {{persona.email}}, Dirección: {{persona.direccion}}, N° Habitacion: {{persona.habitacion_nro}}, Habaitación Disponible: {{persona.habitacion_disponible}}, Fecha de Salida: {{persona.fecha_salida}}</li>
             </ul>
-        {% endfor %}
+        {% endfor %}  -->
 
       </div>
   </div>
