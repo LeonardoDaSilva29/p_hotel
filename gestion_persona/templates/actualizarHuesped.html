@@ -2,17 +2,24 @@
 {% block titulo%} Modificar Huesped {% endblock %}
 {% block contenido %}
 
-<!-- Prestar aatención a la variable familiar.id -->
-<form action="/mostrarHuesped/actualizar/{{ persona.dni }}" method="post"> 
-    {% csrf_token %}
-    {{ form.as_p }}
-    <!-- CON EL .as_p SE QUEDAN LOS CAMPOS UNO DEBADO DEL OTRO -->
-    <input type="submit" value="Submit">
-</form>
+<!--
+<div>
+    <a href="{% url 'lista_huespedes' %}" class="btn btn-primary">Volver al Listado</a>
+    <a href="{% url 'bienvenida' %}" class="btn btn-primary">Volver a Inicio</a>
+</div>
+ -->
 
-<h2 style="color:green">{{msg_exito}}</h2>
 
-<a href="{% url 'lista_huespedes' %}">Volver a listado de Huespedes</a>
 
+<div>
+    <form action="/mostrarHuesped/actualizar/{{ persona.dni }}" method="post"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!-- CON EL .as_p SE QUEDAN LOS CAMPOS UNO DEBADO DEL OTRO -->
+        <input type="submit" value="Actualizar">
+    </form>
+    
+    <h2 style="color:green">{{msg_exito}}</h2>
+</div>
 {% endblock %}
 

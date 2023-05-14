@@ -56,13 +56,13 @@ class ActualizarHuesped(View):
   initial = {"dni":"", "nombre":"", "apellido":"", "fecha_entrada":"", "telefono":"", "email":"", "direccion":"", "habitacion_nro":"", "habitacion_disponible":"", "fecha_salida":""}
 
   
-  # prestar atención ahora el method get recibe un parametro pk == primaryKey == identificador único
+  # prestar atención ahora el method get recibe un parametro dni == dni == identificador único
   def get(self, request, dni): 
       persona = get_object_or_404(Persona, dni=dni)
       form = self.form_class(instance=persona)
       return render(request, self.template_name, {'form':form,'persona': persona})
 
-  # prestar atención ahora el method post recibe un parametro pk == primaryKey == identificador único
+  # prestar atención ahora el method post recibe un parametro dni == dni == identificador único
   def post(self, request, dni): 
       persona = get_object_or_404(Persona, dni=dni)
       form = self.form_class(request.POST ,instance=persona)
@@ -77,10 +77,10 @@ class ActualizarHuesped(View):
       return render(request, self.template_name, {"form": form})
 
 class BorrarHuesped(View):
-  template_name = 'gestion_persona/huespedes.html'
+  template_name = 'bienvenida.html'
 
   
-  # prestar atención ahora el method get recibe un parametro pk == primaryKey == identificador único
+  # prestar atención ahora el method get recibe un parametro dni == dni == identificador único
   def get(self, request, dni): 
       persona = get_object_or_404(Persona, dni=dni)
       persona.delete()

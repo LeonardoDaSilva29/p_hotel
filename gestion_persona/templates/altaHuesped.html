@@ -1,17 +1,21 @@
 {% extends 'master.html' %}
 {% block titulo%} Registo nuevo ingreso {% endblock %}
 {% block contenido %}
+
+<!--
+<div>
+  <a href="{% url 'lista_huespedes' %}" class="btn btn-primary">Volver al Listado</a>
+  <a href="{% url 'bienvenida' %}" class="btn btn-primary">Volver a Inicio</a>
+</div>
+-->
+
 <div class="container">
   <div class="card">
       <div class="card-body">
-        <a href="{% url 'lista_huespedes' %}" class="btn btn-primary">Volver a listado de Huespedes</a>
-        <a href="{% url 'bienvenida' %}" class="btn btn-primary">Volver a Inicio</a>
-
-
         <form action="/mostrarHuesped/alta" method="post">
           {% csrf_token %}
           {{ form.as_p }}
-          <input type="submit" value="Submit">
+          <input type="submit" value="Guardar Nuevo Ingreso">
         </form>
       
         <h2 style="color:green">{{msg_exito}}</h2>

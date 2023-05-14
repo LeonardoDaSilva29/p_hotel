@@ -26,6 +26,6 @@ urlpatterns = [
     path('mostrarHuesped/alta', AltaHuesped.as_view()),
     # EL paramatro pk hace referencia al identificador único en la base de datos para Familiar.
     path('mostrarHuesped/actualizar/<int:dni>', ActualizarHuesped.as_view()), # NUEVA RUTA PARA actualizar FAMILIAR
-    path('mostrarHuesped/borrar/<int:pk>', BorrarHuesped.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
+    path('mostrarHuesped/borrar/<int:dni>', BorrarHuesped.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
 
     ]

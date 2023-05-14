@@ -2,7 +2,9 @@
 {% block titulo%} Buscar Huésped por nombre {% endblock %}
 {% block contenido %}
 
+<!--
 <a href="{% url 'bienvenida' %}" class="btn btn-primary">Volver a Inicio</a>
+-->
 
 <div class="container">
   <div class="card">
@@ -11,7 +13,7 @@
         <form action="/mostrarHuesped/buscar" method="post">
           {% csrf_token %}
           {{ form }}
-          <input type="submit" value="Submit">
+          <input type="submit" value="Buscar">
         </form>
       
         {% for persona in lista_persona %}
