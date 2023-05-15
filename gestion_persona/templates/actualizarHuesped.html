@@ -8,7 +8,7 @@
             <form action="/mostrarHuesped/actualizar/{{ persona.dni }}" method="post"> 
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="submit" value="Actualizar">
+                <input type="submit" value="Actualizar" class="btn btn-primary btn-sm">
             </form>
         </div>
 
