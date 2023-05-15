@@ -2,14 +2,21 @@
 {% block titulo%} <h2 class="text-center">Registo nuevo ingreso</h2> {% endblock %}
 {% block contenido %}
 
-<!--
-<div>
-  <a href="{% url 'lista_huespedes' %}" class="btn btn-primary">Volver al Listado</a>
-  <a href="{% url 'bienvenida' %}" class="btn btn-primary">Volver a Inicio</a>
-</div>
--->
+<style>
+  label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+  }
 
-<div class="container fs-6 d-flex justify-content-center">
+  input {
+  width: 300px; 
+  }
+
+</style>
+
+<div class="container fs-6 d-flex justify-content-center" >
   <div class="card">
       <div class="card-body">
         <form action="/mostrarHuesped/alta" method="post">
@@ -19,7 +26,6 @@
         </form>
       
         <h2 style="color:green">{{msg_exito}}</h2>
-          <!-- Contenido principal -->
       </div>
   </div>
 </div>

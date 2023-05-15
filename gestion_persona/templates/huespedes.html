@@ -2,6 +2,7 @@
 
 {% block contenido %}
 
+<div class="table-container">
     <table class="table table-sm fs-6 table table-striped">
         <thead>
             <tr>
@@ -13,7 +14,6 @@
                 <th>E-mail</th>
                 <th>Dirección</th>
                 <th>N° Habitación</th>
-                <!--<th>Habitación Disponible</th>-->
                 <th>Fecha de Salida</th>
                 <th>Acciones</th>
             </tr>
@@ -29,7 +29,6 @@
                 <td>{{ persona.email }}</td>
                 <td>{{ persona.direccion }}</td>
                 <td>{{ persona.habitacion_nro }}</td>
-                <!--<td>{{ persona.habitacion_disponible }}</td>-->
                 <td>{{ persona.fecha_salida }}</td>
                 <td>
                     <a href='actualizar/{{ persona.dni }}' class="btn btn-primary btn-sm">Actualizar</a>
@@ -39,6 +38,7 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
 {% endblock %}
 
 {% block titulo %}

@@ -22,10 +22,9 @@ urlpatterns = [
     path('', bienvenida, name='bienvenida'),
     path('admin/', admin.site.urls),
     path('mostrarHuesped/', MostrarHuesped, name="lista_huespedes"),
-    path('mostrarHuesped/buscar', BuscarHuesped.as_view()), # NUEVA RUTA PARA BUSCAR FAMILIAR
+    path('mostrarHuesped/buscar', BuscarHuesped.as_view()), 
     path('mostrarHuesped/alta', AltaHuesped.as_view()),
-    # EL paramatro pk hace referencia al identificador único en la base de datos para Familiar.
-    path('mostrarHuesped/actualizar/<int:dni>', ActualizarHuesped.as_view()), # NUEVA RUTA PARA actualizar FAMILIAR
-    path('mostrarHuesped/borrar/<int:dni>', BorrarHuesped.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
+    path('mostrarHuesped/actualizar/<int:dni>', ActualizarHuesped.as_view()), 
+    path('mostrarHuesped/borrar/<int:dni>', BorrarHuesped.as_view()), 
 
     ]
