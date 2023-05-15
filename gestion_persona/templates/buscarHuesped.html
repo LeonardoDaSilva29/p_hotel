@@ -2,11 +2,8 @@
 {% block titulo%} <h2 class="text-center">Buscar Huésped por nombre</h2>{% endblock %}
 {% block contenido %}
 
-<!--
-<a href="{% url 'bienvenida' %}" class="btn btn-primary">Volver a Inicio</a>
--->
 
-<div class="container fs-6 d-flex justify-content-center"">
+<div class="container fs-6 d-flex justify-content-center p-5">
   <div class="card">
       <div class="card-body">
 
@@ -15,8 +12,11 @@
           {{ form }}
           <input type="submit" value="Buscar" class="btn btn-primary btn-sm">
         </form>
+      </div>
+  </div>
+</div>
 
-        <table class="table table-sm fs-6 table table-striped">
+        <table class="table table-sm fs-6 table table-striped" >
           <thead>
             <tr>
               <th>DNI</th>
@@ -54,17 +54,6 @@
           </tbody>
 
         </table>
-<!--      
-        {% for persona in lista_persona %}
-            <ul>
-                <li> DNI: {{persona.dni}}, Nombre: {{persona.nombre}}, Apellido: {{persona.apellido}}, Fecha de Entrada: {{persona.fecha_entrada}}, Telefono: {{persona.telefono}}, E-mail: {{persona.email}}, Dirección: {{persona.direccion}}, N° Habitacion: {{persona.habitacion_nro}}, Habaitación Disponible: {{persona.habitacion_disponible}}, Fecha de Salida: {{persona.fecha_salida}}</li>
-            </ul>
-        {% endfor %}  -->
 
-      </div>
-  </div>
-</div>
-
-  
 
 {% endblock %}

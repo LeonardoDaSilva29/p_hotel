@@ -50,6 +50,7 @@ class AltaHuesped(View):
         
         return render(request, self.template_name, {"form": form})
 
+
 class ActualizarHuesped(View):
   form_class = PersonaForm
   template_name = 'actualizarHuesped.html'
