@@ -16,15 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from gestion_persona.views import (bienvenida, MostrarHuesped, BuscarHuesped, AltaHuesped, ActualizarHuesped, BorrarHuesped)
+from gestion_persona.views import (
+    home, registro, cerrar_secion, iniciar_secion, MostrarHuesped, BuscarHuesped, AltaHuesped, ActualizarHuesped, BorrarHuesped)
 
 urlpatterns = [
-    path('', bienvenida, name='bienvenida'),
     path('admin/', admin.site.urls),
+    path('', home),
+    path('registro/', registro),
+    path('cerrar_secion/', cerrar_secion),
+    path('iniciar_secion/', iniciar_secion),
     path('mostrarHuesped/', MostrarHuesped, name="lista_huespedes"),
-    path('mostrarHuesped/buscar', BuscarHuesped.as_view()), 
+    path('mostrarHuesped/buscar', BuscarHuesped.as_view()),
     path('mostrarHuesped/alta', AltaHuesped.as_view()),
-    path('mostrarHuesped/actualizar/<int:dni>', ActualizarHuesped.as_view()), 
-    path('mostrarHuesped/borrar/<int:dni>', BorrarHuesped.as_view()), 
+    path('mostrarHuesped/actualizar/<int:dni>', ActualizarHuesped.as_view()),
+    path('mostrarHuesped/borrar/<int:dni>', BorrarHuesped.as_view()),
 
-    ]
+]

@@ -1,6 +1,20 @@
-{% extends 'master.html' %}
-{% block titulo%} <h2 class="text-center">Modificar Huesped</h2>{% endblock %}
-{% block contenido %}
+{% extends 'principal.html' %}
+
+{% block title %} Actualizar Fiacha de Huésped {%  endblock %}
+
+
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/mostrarHuesped/alta">Nuevo Huesped<span class="sr-only"></span></a>
+        <a class="nav-item nav-link" href="/mostrarHuesped/buscar">Buscar Huesped</a>
+        <a class="nav-item nav-link" href="/mostrarHuesped/">Volver al Listado</a>
+      </div>
+
+  </div>
+</nav>
 
 <div class="container fs-6 d-flex justify-content-center">
     <div class="card">

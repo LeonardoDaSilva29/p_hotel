@@ -1,11 +1,56 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from gestion_persona.models import Persona
 from django.views import View 
 from gestion_persona.forms import Buscar, PersonaForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
+from django.db import IntegrityError
+from django.contrib.auth import login, logout, authenticate
 
 
-def bienvenida(request):
-    return render(request, 'bienvenida.html')
+
+def home(request):
+    return render(request, 'home.html')
+
+def registro(request):
+    if request.method == 'GET':
+        return render(request, 'registro.html', {"form": UserCreationForm})
+    else:
+
+        if request.POST["password1"] == request.POST["password2"]:
+            try:
+                user = User.objects.create_user(
+                    request.POST["username"], password=request.POST["password1"])
+                user.save()
+                login(request, user)
+                return redirect('lista_huespedes')
+            except IntegrityError:
+                return render(request, 'registro.html', {"form": UserCreationForm, "error": "El usuario ya existe."})
+
+        return render(request, 'registro.html', {"form": UserCreationForm, "error": "Las contraseñas no coinciden."})
+    
+def cerrar_secion(request):
+    logout(request)
+    return redirect('/')
+
+
+def iniciar_secion(request):
+
+     if request.method == 'GET':
+        return render(request, 'iniciar_secion.html', {
+            "form": AuthenticationForm})
+     else:
+        user = authenticate(
+            request, username=request.POST['username'], password=request.POST
+            ['password'])
+        if user is None:
+            return render(request, 'iniciar_secion.html', {"form": AuthenticationForm, 
+                                                           'error': 'Usuario o Contraseña incorrecto, intentelo de nuevo...'
+                                                           })
+        else:
+            login(request, user)
+            return redirect ('lista_huespedes')
+
 
 def MostrarHuesped(request):
     lista_huesped = Persona.objects.all()

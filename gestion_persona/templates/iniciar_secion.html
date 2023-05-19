@@ -1,0 +1,18 @@
+{% extends 'principal.html' %}
+{% block title %} Iniciar Seción {%  endblock %}
+
+{%block content%}
+
+<h2>Iniciar Seción</h2>
+
+{{error}}
+
+<form action="/iniciar_secion/" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>
+        Iniciar Seción
+    </button>
+</form>
+
+{% endblock %}

@@ -1,6 +1,18 @@
-{% extends 'master.html' %}
+{% extends 'principal.html' %}
 
-{% block contenido %}
+{% block title %} Listado de Huéspedes{%  endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/mostrarHuesped/alta">Nuevo Huesped<span class="sr-only"></span></a>
+        <a class="nav-item nav-link" href="/mostrarHuesped/buscar">Buscar Huesped</a>
+        <a class="nav-item nav-link" href="/mostrarHuesped/">Volver al Listado</a>
+      </div>
+
+  </div>
+</nav>
 
 <div class="table-container">
     <table class="table table-sm fs-6 table table-striped">
@@ -41,6 +53,4 @@
 </div>
 {% endblock %}
 
-{% block titulo %}
-<h2 class="text-center">Lista de Huéspedes</h2>
-{% endblock %}
+
